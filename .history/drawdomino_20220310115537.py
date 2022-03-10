@@ -1,0 +1,1 @@
+def drawdomino(cas, x0, y0, )
