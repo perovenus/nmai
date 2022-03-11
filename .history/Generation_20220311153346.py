@@ -15,12 +15,12 @@ class Board:
         shuffle(self.values)
         self.Cells = []
         self.checkboard = []
+        
     def pre(self):
         for i in range(self.Size + 1):
             y0 = i * 60
             y1 = i * 60 + 60
             self.Cells.append([])
-            self.checkboard.append([False] * (self.Size + 1))
             for j in range(self.Size + 2):
                 x0 = j * 60
                 x1 = j * 60 + 60

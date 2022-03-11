@@ -20,13 +20,14 @@ class Board:
             y0 = i * 60
             y1 = i * 60 + 60
             self.Cells.append([])
-            self.checkboard.append([False] * (self.Size + 1))
+            self.checkboard.append([])
             for j in range(self.Size + 2):
                 x0 = j * 60
                 x1 = j * 60 + 60
                 index  = (self.Size + 1) * i + j
                 self.values[index] %= self.Size + 1
                 self.Cells[i].append(Cell(x0, y0, x1, y1, self.values[index]))
+                self.checkboard[i].append(False)
     def drawboard(self):
         self.pre()
         for cell in self.Cells:

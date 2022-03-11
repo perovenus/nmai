@@ -20,7 +20,7 @@ class Board:
             y0 = i * 60
             y1 = i * 60 + 60
             self.Cells.append([])
-            self.checkboard.append([False] * (self.Size + 1))
+            self.c
             for j in range(self.Size + 2):
                 x0 = j * 60
                 x1 = j * 60 + 60
