@@ -28,6 +28,7 @@ class Board:
     def drawboard(self):
         self.pre()
         for cell in self.Cells:
+            print(len(cell))
             for v in cell:
                 self.canvas.create_rectangle(v.x0, v.y0, v.x1, v.y1)
                 self.canvas.create_text(v.x0 + 30, v.y0 + 30, text = v.value)
