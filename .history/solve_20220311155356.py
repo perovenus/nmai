@@ -1,5 +1,5 @@
 from generation import *
-from drawdomino import *
+
 def legalmove():
     pass
 def move_forward():
