@@ -1,3 +1,4 @@
+from time import sleep
 from generation import *
 from drawdomino import *
 class Solve:
@@ -11,12 +12,13 @@ class Solve:
         res =[]
         res = self.DFS(self.board, self.path, 0 ,0)
         if res:
-            print("Da tim dc dg di")
-            for i  in self.path:
-                drawdomino(self.canvas, i[0], i[1])
+            self.draw()
         else:
             print("Ko tim dc dg di")
             for i  in self.path:
+                drawdomino(self.canvas, i[0], i[1])
+    def draw(self):
+        for i  in self.path:
                 drawdomino(self.canvas, i[0], i[1])
     def isLegal(self, check_board, x0, x1):
         if  check_board[x0][x1] :
@@ -46,9 +48,15 @@ class Solve:
         return Edges
 
     def DFS(self, board, path, x, y):
-        for v in self.board.visited:
-            print(v)
-        print(f'My step  at {x} {y}')
+        # for v in self.board.visited:
+        #     print(v)
+        # print(f'My step  at {x} {y}')
+        self.canvas.update()
+        sleep(0.5)
+        self.canvas.delete("all")
+        self.board.drawboard()
+        self.draw()
+        self.canvas.update()
         if self.isValid(self.size, x , y):
             if self.board.visited[x][y] == True:
                 if x >= self.size  + 1 and y < self.size + 2:
@@ -64,7 +72,7 @@ class Solve:
         if len(path) == (self.size + 2)*(self.size + 1):
             return True
         Edges = self.Get_Edges( x ,y)
-        print(f'My legal moves ', Edges)
+        # print(f'My legal moves ', Edges)
         if len(Edges) == 0:
             return False
         for move in Edges:
@@ -75,7 +83,7 @@ class Solve:
             second = self.board.Cells[x + move[0]][y + move[1]].value
             cell0  = self.board.Cells[x][y]
             cell1 = self.board.Cells[x + move[0]][y + move[1]]
-            print(f'My domino [{cell0.value} | {cell1.value}]')
+            # print(f'My domino [{cell0.value} | {cell1.value}]')
             path.append([cell0, cell1])
             self.board.numbersexist[first][second] = self.board.numbersexist[second][first] = True
             self.board.visited[x + move[0]][y + move[1]] = True
@@ -88,5 +96,5 @@ class Solve:
             self.board.visited[x][y] = False
             self.board.visited[x + move[0]][y + move[1]] = False
             path.pop()
-            print(f'My step  at {x} {y}')
+            # print(f'My step  at {x} {y}')
         return False

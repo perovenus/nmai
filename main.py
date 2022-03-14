@@ -4,7 +4,7 @@ from solveHan import *
 from solveHung import *
 tk = Tk()
 cas = Canvas(tk, height = 600, width= 800)
-solv = Solve(cas = cas, n  = 6)
-solv.solve()
+solv = Solve(cas = cas, n  = 4)
 cas.pack()
+solv.solve()
 tk.mainloop()
