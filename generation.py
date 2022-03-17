@@ -1,5 +1,6 @@
 from multiprocessing.spawn import prepare
 from random import shuffle
+from createTest import *
 class Cell:
     def __init__(self, x0, y0, x1, y1, value):
         self.x0 = x0
@@ -11,17 +12,13 @@ class Board:
     def __init__(self, canvas, n):
         self.canvas = canvas
         self.Size = n
-        # self.values = list(range((n + 1)*(n + 2)))
-        # shuffle(self.values)
+        testboard = CreateTest(n)
+        testboard.createTest()
+        self.values = testboard.board
         self.Cells = []
         self.dominosexist = []
         self.visited = []
     def pre(self):
-        # arr1= [[0, 2, 1, 3, 2],
-        #       [1, 1, 3, 2, 3],
-        #       [1, 3, 3, 0 , 0],
-        #       [1, 0, 2, 2, 0]]
-        arr2 =[[3, 2, 2, 2, 3],[2, 0, 3, 1, 1],[1, 0, 1, 0, 0],[2, 0, 1, 3, 3]]
         for i in range(self.Size + 1):
             y0 = i * 60
             y1 = i * 60 + 60
@@ -31,10 +28,8 @@ class Board:
             for j in range(self.Size + 2):
                 x0 = j * 60
                 x1 = j * 60 + 60
-                # index  = (self.Size + 1) * i + j
-                # self.values[index] %= self.Size + 1
-                # self.Cells[i].append(Cell(x0, y0, x1, y1, self.values[index]))
-                self.Cells[i].append(Cell(x0, y0, x1, y1, arr2[i][j]))
+
+                self.Cells[i].append(Cell(x0, y0, x1, y1, self.values[i][j]))
                 self.visited[i].append(False)
     def drawboard(self):
         self.pre()
