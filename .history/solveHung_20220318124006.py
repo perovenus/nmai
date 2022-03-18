@@ -61,6 +61,9 @@ class SolveHung:
         
         # self.possiblePositions.remove(cell1_pos)
         if possibleDominos == []: return False
+<<<<<<< HEAD
+
+=======
         shuffle(possibleDominos)
         possibleDominos = self.getPossibleDominos(cell1_pos)
         print("Possible dominos: ", possibleDominos)

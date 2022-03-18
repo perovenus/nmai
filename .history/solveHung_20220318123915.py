@@ -14,9 +14,6 @@ class SolveHung:
         print("Dfs value", self.Dfs(init_position))
         print("list of domino", self.listOfDomino)
         self.drawsolution()
-    def drawsolution(self):
-        for domino in self.listOfDomino:
-            drawdomino(self.canvas, self.board.Cells[domino[0][0]][domino[0][1]], self.board.Cells[domino[1][0]][domino[1][1]])
         
 
     def solve(self, init_position):
@@ -50,18 +47,7 @@ class SolveHung:
         return possibleDominos
 
     def Dfs(self, cell1_pos):
-        self.canvas.update()
-        sleep(0.5)
-        self.canvas.delete("all")
-        self.board.drawboard()
-        self.drawsolution()
-        self.canvas.update()
-        possibleDominos = self.getPossibleDominos(cell1_pos)
-        print("Possible dominos: ", possibleDominos)
-        
-        # self.possiblePositions.remove(cell1_pos)
-        if possibleDominos == []: return False
-        shuffle(possibleDominos)
+
         possibleDominos = self.getPossibleDominos(cell1_pos)
         print("Possible dominos: ", possibleDominos)
         

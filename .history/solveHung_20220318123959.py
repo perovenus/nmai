@@ -50,18 +50,7 @@ class SolveHung:
         return possibleDominos
 
     def Dfs(self, cell1_pos):
-        self.canvas.update()
-        sleep(0.5)
-        self.canvas.delete("all")
-        self.board.drawboard()
-        self.drawsolution()
-        self.canvas.update()
-        possibleDominos = self.getPossibleDominos(cell1_pos)
-        print("Possible dominos: ", possibleDominos)
         
-        # self.possiblePositions.remove(cell1_pos)
-        if possibleDominos == []: return False
-        shuffle(possibleDominos)
         possibleDominos = self.getPossibleDominos(cell1_pos)
         print("Possible dominos: ", possibleDominos)
         
