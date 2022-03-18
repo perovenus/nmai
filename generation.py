@@ -28,6 +28,7 @@ class Board:
             for j in range(self.Size + 2):
                 x0 = j * 60
                 x1 = j * 60 + 60
+
                 self.Cells[i].append(Cell(x0, y0, x1, y1, self.values[i][j]))
                 self.visited[i].append(False)
     def drawboard(self):
