@@ -77,6 +77,4 @@ class CreateTest:
                 if self.visited[x_next][y_next] == False:
                     Edges.append(move)
         return Edges
-t = CreateTest(5)
-t.createTest()
-print(t.board)
+t = CreateTest()

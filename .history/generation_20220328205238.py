@@ -14,7 +14,7 @@ class Board:
         self.Size = n
         testboard = CreateTest(n)
         testboard.createTest()
-        self.values = testboard.board
+        # self.values = testboard.board
         self.Cells = []
         self.dominosexist = []
         self.visited = []

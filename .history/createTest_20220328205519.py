@@ -78,5 +78,5 @@ class CreateTest:
                     Edges.append(move)
         return Edges
 t = CreateTest(5)
-t.createTest()
+t.c
 print(t.board)
